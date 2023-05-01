@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Fruits } from '../fruits';
-import { FruitsService } from '../fruits.service';
+import { Categories } from '../categories';
+import { CategoriesService } from '../categories.service';
+
  
 @Component({
   selector: 'app-create',
@@ -9,28 +10,22 @@ import { FruitsService } from '../fruits.service';
   styleUrls: ['./create.component.css'],
 })
 export class CreateComponent implements OnInit {
-  fruitForm: Fruits = {
+  categoryForm: Categories = {
     id: 0,
     name: '',
-    price: 0,
-    quantity: 0,
-    category:{
-      id: 0,
-      name: '',
-      description:''
-    }
+    description:''
   };
  
-  constructor(private fruitService:FruitsService,
+  constructor(private categorieservice:CategoriesService,
     private router:Router) {}
  
   ngOnInit(): void {}
  
   create(){
-    this.fruitService.create(this.fruitForm)
+    this.categorieservice.create(this.categoryForm)
     .subscribe({
       next:(data) => {
-        this.router.navigate(["/fruits/home"])
+        this.router.navigate(["/categories/home"])
       },
       error:(err) => {
         console.log(err);

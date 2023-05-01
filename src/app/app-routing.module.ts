@@ -6,7 +6,10 @@ const routes: Routes = [
     redirectTo: 'fruits/home',
     pathMatch: 'full',
   },
-
+  {
+    path: 'categories',
+    redirectTo: 'categories/home',
+  },
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
